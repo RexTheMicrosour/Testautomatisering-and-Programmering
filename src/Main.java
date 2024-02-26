@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in); //Scanner
 
-        hashMap h = new hashMap();
+        hashMap h = new hashMap(0);
         HashMap<Integer, String> morseHMap = new HashMap<Integer, String>();  // Create a HashMap object called morseHMap
         morseHMap = h.morseHashMap();
         HashMap<Integer, String> charHMap = new HashMap<Integer, String>();  // Create a HashMap object called charHMap
@@ -15,7 +15,7 @@ public class Main {
         while (true){
             System.out.println("");
             System.out.println("Hello welcome!");
-            System.out.print("Do u want to write in text [1} or in morse [2] or if you want to end [3] : ");
+            System.out.print("Do u want to write in text [1} or in morse [2] or see translation [3] or if you want to end [4] : ");
             String input = scan.nextLine();
 
             if (input.equals("1")){
@@ -23,16 +23,13 @@ public class Main {
                 String input_text = scan.nextLine();
                 String text = input_text;
 
-
                 String[] arrOfTxt = text.split("");
 
-                for (int i = 0 ; i<arrOfTxt.length ; i++) {
+                for (int i = 0; i < arrOfTxt.length; i++) {
 
                     for (Integer j : charHMap.keySet()) {
 
                         if (arrOfTxt[i].equals(charHMap.get(j))) {
-
-
                             for (Integer k : morseHMap.keySet()) {
                                 if (j.equals(k)) {
                                     System.out.print(morseHMap.get(k) + " ");
@@ -43,6 +40,7 @@ public class Main {
                 }
 
             }
+
             else if (input.equals("2"))
             {
                 System.out.print("What do you want to write? ");
@@ -72,15 +70,22 @@ public class Main {
                     }
                 }
             }
-            else if (input.equals("3")){
+
+           else if (input.equals("3")) {
+                for (Integer j : charHMap.keySet()) {
+
+                    System.out.println(charHMap.get(j) + " = " + morseHMap.get(j));
+                }
+            }
+            else if (input.equals("4")){
                 break;
+            }
+            else {
+                System.out.print("Error, thats not one of the options!");
+
             }
         }
 
-
-
-
-
-
     }
+
 }

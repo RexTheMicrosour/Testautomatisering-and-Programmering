@@ -2,6 +2,17 @@ import java.util.HashMap;
 
 public class hashMap {
 
+    private int userChar;
+
+
+    public hashMap(int myChar) {
+        userChar = myChar;
+    }
+
+    //Constructor
+
+
+
     public HashMap<Integer, String> morseHashMap() {
 
         HashMap<Integer, String> morseHMap = new HashMap<Integer, String>();
@@ -96,5 +107,22 @@ public class hashMap {
 
         return charHMap;
     }
+    public int getChar() {
+        return userChar;
+    }
+    public void setChar(int i) {
+        if (i >=1){
+            userChar = i;
+        }
 
+    }
+
+    public boolean checkMorse(String A) {
+
+        if (A.equals(morseHashMap())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
