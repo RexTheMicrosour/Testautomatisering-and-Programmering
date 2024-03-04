@@ -15,7 +15,12 @@ public class Main {
         while (true){
             System.out.println("");
             System.out.println("Hello welcome!");
-            System.out.print("Do u want to write in text [1} or in morse [2] or see translation [3] or if you want to end [4] : ");
+            System.out.println("Do u want to write in text, press [1}");
+            System.out.println("Do u want to write in morse, press [2]");
+            System.out.println("Do u want to see the translation, press [3]");
+            System.out.println("Do u want to end, press [4]");
+            System.out.println(" ");
+            System.out.print("Choose what you u want to do : ");
             String input = scan.nextLine();
 
             if (input.equals("1")){
