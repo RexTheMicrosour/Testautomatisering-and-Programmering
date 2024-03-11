@@ -5,29 +5,38 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class hashTest {
 
     @Test
-    public void TestChar(){
-        hashMap test = new hashMap(0);
-        int expected = 30;
+    public void TestWrongChar(){
+        hashMap test = new hashMap(1,"",""); // simulate valid (1) or invalid (0) input
 
-        test.setChar(30);
+        int expected = 1; //expected valid input
 
-        int actual = test.getChar();
+ //       test.setCount(0); // set invalid input
+        test.setCount(1); // set valid input
+
+        int actual = test.getCount();
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void TestCharQuantity(){
+        hashMap test = new hashMap(1,"","");
+        int expected = 3; // int for expected words
+
+        int actual = test.countWords("MY NAME IS ALEXANDER");
 
         assertEquals(expected, actual);
     }
 
     @Test
-    public void TestMorse(){
-        hashMap test = new hashMap(0);
-        boolean expected = false;
+    public void TestMorseLength(){
+        hashMap test = new hashMap(1,"","");
+        int expected = 5;
 
-        boolean actual = test.checkMorse(String.valueOf(expected));
+        int actual = test.countMorse(".- .-.. .- -..- .- -. -.. . .-.");
 
-        assertEquals(expected, actual);
+       assertEquals(expected, actual);
     }
-
-
-
 
 
 }

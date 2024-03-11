@@ -1,21 +1,56 @@
+
+
 import java.util.HashMap;
 
 public class hashMap {
 
-    private int userChar;
+    private static int userCount;  // New int for error checking
+    private static  String userWords; // new String for counting words
 
+    private  static  String userMorse;
 
-    public hashMap(int myChar) {
-        userChar = myChar;
+    public hashMap(int myCount,String myWords, String myMorse) {
+        userCount = myCount;
+        userWords = myWords;
+        userMorse = myMorse;
     }
-
     //Constructor
 
+    public int getCount() {
+        return userCount;
+    }
+    //Counter for errors
+ //   public int getCount(int ) {
+ //       return userCount;
+ //   }
+    public void setCount(int actualCount) {
+        if (actualCount == 1){
+            userCount = 1;
+        }
+        else {
+            userCount = 0;
+        }
+    }
+    public static int countWords(String userText){
+        userText = userText.trim(); // remove whitespaces
 
+        String[] words = userText.split("\\s+"); // Splitting the string into words
 
+        int wordCount = words.length; // Counting the number of words
+
+        return wordCount;
+    }
+    public int countMorse(String morsetext){
+        morsetext = morsetext.trim();// remove whitespaces
+
+        String[] signs = morsetext.split("\\s+"); // Splitting the string into signs
+
+        int morseCount = signs.length; // Counting the number of signs
+        return morseCount;
+    }
     public HashMap<Integer, String> morseHashMap() {
 
-        HashMap<Integer, String> morseHMap = new HashMap<Integer, String>();
+        HashMap<Integer, String> morseHMap = new HashMap<Integer, String>();// Create a HashMap object called morseHMap
 
         morseHMap.put(0, ".-");
         morseHMap.put(1, "-...");
@@ -57,9 +92,11 @@ public class hashMap {
         morseHMap.put(37, ".-.-.-");
         morseHMap.put(38, "--..--");
         morseHMap.put(39, "..--..");
+
+
         return morseHMap;
     }
-
+    // Hashmap with morse
     public HashMap<Integer, String> charHashMap() {
 
         HashMap<Integer, String> charHMap = new HashMap<Integer, String>();
@@ -105,24 +142,21 @@ public class hashMap {
         charHMap.put(38, ",");
         charHMap.put(39, "?");
 
+
         return charHMap;
     }
-    public int getChar() {
-        return userChar;
-    }
-    public void setChar(int i) {
-        if (i >=1){
-            userChar = i;
-        }
+    // Hashmap with text
 
-    }
 
-    public boolean checkMorse(String A) {
 
-        if (A.equals(morseHashMap())) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+
+
+
+
+
+
+
+
+
+
 }
