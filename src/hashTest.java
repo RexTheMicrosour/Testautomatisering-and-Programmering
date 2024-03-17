@@ -6,37 +6,27 @@ public class hashTest {
 
     @Test
     public void TestWrongChar(){
-        hashMap test = new hashMap(1,"",""); // simulate valid (1) or invalid (0) input
-
+        Converter test = new Converter(1,"",""); // simulate valid (1)
         int expected = 1; //expected valid input
-
- //       test.setCount(0); // set invalid input
         test.setCount(1); // set valid input
-
         int actual = test.getCount();
         assertEquals(expected, actual);
     }
 
-
     @Test
-    public void TestCharQuantity(){
-        hashMap test = new hashMap(1,"","");
-        int expected = 3; // int for expected words
-
-        int actual = test.countWords("MY NAME IS ALEXANDER");
-
+    public void TestTextInput(){
+        Converter test = new Converter(1,"","");
+        String expected = "-- -.-- / -. .- -- . / .. ... / .- .-.. . -..- .- -. -.. . .-. ";
+        String actual = Converter.convertToMorse("MY NAME IS ALEXANDER");
         assertEquals(expected, actual);
     }
 
     @Test
-    public void TestMorseLength(){
-        hashMap test = new hashMap(1,"","");
-        int expected = 5;
-
-        int actual = test.countMorse(".- .-.. .- -..- .- -. -.. . .-.");
-
-       assertEquals(expected, actual);
+    public void TestMorseInput(){
+        Converter test = new Converter(1,"","");
+        String expected = "MY NAME IS ALEXANDER";
+        String actual = Converter.convertToText("-- -.-- / -. .- -- . / .. ... / .- .-.. . -..- .- -. -.. . .-.");
+        assertEquals(expected, actual);
     }
-
 
 }
